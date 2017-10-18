@@ -1,0 +1,89 @@
+<?php
+$ratings = $this->getRatings();
+?>
+<div class="form-add">
+    <h2><?php echo $this->__('Write Your Own Review') ?></h2>
+    <form action="<?php echo $this->getAction() ?>" method="post" id="review-form">
+      <input type="hidden" name="order_id" value="<?php echo base64_decode($this->getRequest()->getParam('oid')) ?>" />
+      <fieldset>
+        <span id="input-message-box"></span>
+        <table class="data-table" id="order-review-table">
+            <col />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th><span class="nobr"><?php echo $this->__('0 star') ?></span></th>
+                    <th><span class="nobr"><?php echo $this->__('1 star') ?></span></th>
+                    <th><span class="nobr"><?php echo $this->__('2 stars') ?></span></th>
+                    <th><span class="nobr"><?php echo $this->__('3 stars') ?></span></th>
+                    <th><span class="nobr"><?php echo $this->__('4 stars') ?></span></th>
+                    <th><span class="nobr"><?php echo $this->__('5 stars') ?></span></th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($ratings as $rating_code => $_rating): ?>
+                <tr>
+                  <th><?php echo $this->escapeHtml($_rating) ?></th>
+                  <?php for($i=0;$i<=5;$i++): ?>
+                      <td class="value"><input type="radio" name="<?php echo $rating_code ?>" id="<?php echo $this->escapeHtml($rating_code) ?>_<?php echo $i ?>" value="<?php echo $i ?>" class="radio" /></td>
+                  <?php endfor; ?>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table><br>
+        <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+        <script type="text/javascript">decorateTable('order-review-table')</script>
+        <ul class="form-list">
+            <li>
+                <label for="comment"><?php echo $this->__('Comment') ?></label>
+                <div class="input-box">
+                    <textarea name="comment" id="comment" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+        </ul>
+      </fieldset>
+      <div class="buttons-set">
+        <button type="submit" title="<?php echo $this->__('Submit Review') ?>" class="button"><span><span><?php echo $this->__('Submit Review') ?></span></span></button>
+      </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var dataForm = new VarienForm('review-form');
+        Validation.addAllThese(
+        [
+               ['validate-rating', '<?php echo $this->__('Please select one of each of the ratings above') ?>', function(v) {
+                    var trs = $('order-review-table').select('tr');
+                    var inputs;
+                    var error = 1;
+
+                    for( var j=0; j < trs.length; j++ ) {
+                        var tr = trs[j];
+                        if( j > 0 ) {
+                            inputs = tr.select('input');
+
+                            for( i in inputs ) {
+                                if( inputs[i].checked == true ) {
+                                    error = 0;
+                                }
+                            }
+
+                            if( error == 1 ) {
+                                return false;
+                            } else {
+                                error = 1;
+                            }
+                        }
+                    }
+                    return true;
+                }]
+        ]
+        );
+    //]]>
+    </script>
+</div>

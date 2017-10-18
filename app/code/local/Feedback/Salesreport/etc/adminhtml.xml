@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+      <sales>
+        <children>
+          <salesreport translate="title">
+            <title>Feedback Order Reviews</title>
+            <children>
+                <pending translate="title">
+                  <title>Pending Reviews</title>
+                  <action>salesreport/adminhtml_index/pending/</action>
+                </pending>
+                <all translate="title">
+                  <title>All Reviews</title>
+                  <action>salesreport/adminhtml_index/index/</action>
+                </all>
+            </children>
+            <sort_order>900</sort_order>
+          </salesreport>
+        </children>
+     </sales>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sales>
+                        <children>
+                            <salesreport translate="title" module="Feedback_Salesreport">
+                                <title>Order Reviews Feedback</title>
+                                <children>
+                                    <reviews translate="title">
+                                        <title>Orders Reviews</title>
+                                        <children>
+                                            <all translate="title">
+                                                <title>All Reviews</title>
+                                            </all>
+                                            <pending translate="title">
+                                                <title>Pending Reviews</title>
+                                            </pending>
+                                        </children>
+                                    </reviews>
+                                 </children>
+                            </salesreport>
+                        </children>
+                    </sales>
+                    <system>
+                        <children>
+                            <order_statuses>
+                                <title>Order Statuses</title>
+                                <sort_order>15</sort_order>
+                            </order_statuses>
+                            <config>
+                                <children>
+                                    <salesreport translate="title">
+                                        <title>Feedback Orders Review</title>
+                                        <sort_order>70</sort_order>
+                                    </salesreport>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

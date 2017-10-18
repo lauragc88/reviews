@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<config>
+  <sections>
+    <salesreport translate="label" >
+      <label>Feedback Orders Review</label>
+      <tab>sales</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>990</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+          <general>
+            <label>Configuration</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>10</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <fields>
+            <enabled translate="label">
+               <label>Auto send</label>
+               <frontend_type>select</frontend_type>
+               <source_model>adminhtml/system_config_source_yesno</source_model>
+               <sort_order>0</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>0</show_in_website>
+               <show_in_store>0</show_in_store>
+            </enabled>
+            <sender_email translate="label">
+               <label>Sender</label>
+               <frontend_type>select</frontend_type>
+               <source_model>adminhtml/system_config_source_email_identity</source_model>
+               <sort_order>10</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>0</show_in_website>
+               <show_in_store>0</show_in_store>
+            </sender_email>
+            <status_order translate="label">
+               <label>Status orders</label>
+               <frontend_type>multiselect</frontend_type>
+               <source_model>adminhtml/system_config_source_order_status</source_model>
+               <sort_order>20</sort_order>
+               <show_in_default>1</show_in_default>
+               <show_in_website>0</show_in_website>
+               <show_in_store>0</show_in_store>
+              <comment>Status of order, if none is selected, default will be Complete</comment>
+            </status_order>
+            <number_days translate="label comment">
+              <label>Number Days</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>30</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Number of days to elapse after ordering.</comment>
+            </number_days>
+            <template_email translate="label comment">
+              <label>Email Template</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_email_template</source_model>
+              <sort_order>50</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>Create new templates using System-Transactional emails</comment>
+            </template_email>
+          </fields>
+          </general>
+      </groups>
+    </salesreport>
+  </sections>
+</config>

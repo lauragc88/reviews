@@ -1,0 +1,10 @@
+{
+    "name":"lauragc88/reviews",
+    "type":"magento-module",
+    "license":"MIT",
+    "homepage":"https://github.com/lauragc88/reviews",
+    "description":"Envia un email pasados N dias desde la realizacion del pedido para valorar la atencion al cliente, entrega y producto del pedido.",
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}

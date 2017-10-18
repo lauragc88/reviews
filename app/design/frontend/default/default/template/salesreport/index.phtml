@@ -1,0 +1,38 @@
+<?php
+$reviews = $this->getAllreviews();
+?>
+<div class="page-title">
+	<h1><?php echo $this->__('All reviews') ?></h1>
+</div>
+<div>
+	<table class="data-table">
+		<thead>
+			<tr>
+				<th><?php echo $this->__('Review ID');?></th>
+				<th><?php echo $this->__('Order #');?></th>
+				<th><?php echo $this->__('Customer Support');?></th>
+				<th><?php echo $this->__('Delivery');?></th>
+				<th><?php echo $this->__('Product');?></th>
+				<th><?php echo $this->__('Comment');?></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php
+			//Si hay reviews los mostramos
+			if(count($reviews)){
+				foreach($reviews as $_review){ ?>
+					<tr>
+						<td><?php echo $_review->getReviewId()?></td>
+						<td><?php echo $_review->getOrderId();?></td>
+						<td><?php echo $_review->getAtencionCliente();?></td>
+						<td><?php echo $_review->getEntrega();?></td>
+						<td><?php echo $_review->getProducto();?></td>
+						<td><?php echo $_review->getComment();?></td>
+					</tr>
+				<?php } ?>
+			<?php } ?>
+			<tr>
+		<tbody>
+	</table>
+	<?php echo $this->getPagerHtml(); ?>
+</div>

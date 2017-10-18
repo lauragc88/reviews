@@ -1,0 +1,7 @@
+app/code/local/Feedback/Salesreport/ app/code/local/Feedback/Salesreport/
+app/etc/modules/Feedback_Salesreport.xml app/etc/modules/Feedback_Salesreport.xml
+app/locale/en_US/Feedback_Salesreport.csv app/locale/en_US/Feedback_Salesreport.csv
+app/locale/en_US/template/email/sales/feedback_reviews.html app/locale/en_US/template/email/sales/feedback_reviews.html
+app/locale/en_US/template/email/reminder_one.html app/locale/en_US/template/email/reminder_one.html
+app/design/frontend/default/default/layout/salesreport.xml app/design/frontend/default/default/layout/salesreport.xml
+app/design/frontend/default/default/template/salesreport/ app/design/frontend/default/default/template/salesreport/

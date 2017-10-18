@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <salesreport_index_index>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+    <reference name="content">
+      <block type="salesreport/reviews" name="allreviews" template="salesreport/index.phtml" />
+    </reference>
+  </salesreport_index_index>
+
+  <salesreport_index_view>
+    <reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+    <reference name="content">
+        <block type="salesreport/form" name="review.form" as="review_form">
+          <action method="setTemplate"><template>salesreport/form.phtml</template></action>
+        </block>
+    </reference>
+  </salesreport_index_view>
+</layout>
